@@ -10,7 +10,7 @@ app.use(express.json());
 app.use("/api", routes);
 const port = process.env.PORT || 5000;
 
-db.sequelize.sync({force:true}).then(() => {
+db.sequelize.authenticate().then(() => {
   // Here method sync its just for dev purposes and if options true are passed wil drop all tables every time i restart my server in prodcution instead of use sync i can use authenticate() METHOD and use migration sequelize
   console.log("\u001b[" + 39 + "m" + "Database Connected " + "\u001b[0m");
 
